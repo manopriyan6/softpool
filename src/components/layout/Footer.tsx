@@ -1,4 +1,3 @@
-
 import { Link } from "react-router-dom";
 import { MessageSquare, Phone, Mail } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -15,9 +14,9 @@ const Footer = () => {
       <div className="container px-4 md:px-6">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
           <div>
-            <h3 className="text-lg font-semibold mb-4 text-gradient">DigitalMarket</h3>
+            <h3 className="text-lg font-semibold mb-4 text-gradient">SoftPool</h3>
             <p className="text-muted-foreground text-sm mb-4">
-              Your premier marketplace for high-quality digital products.
+              Your digital solutions marketplace for high-quality digital products.
             </p>
             <div className="flex gap-4">
               <Button variant="outline" size="icon" onClick={openWhatsApp}>
@@ -82,7 +81,7 @@ const Footer = () => {
         </div>
         
         <div className="border-t border-border/40 mt-12 pt-6 text-center text-sm text-muted-foreground">
-          <p>© {currentYear} DigitalMarket. All rights reserved.</p>
+          <p>© {currentYear} SoftPool. All rights reserved.</p>
         </div>
       </div>
     </footer>

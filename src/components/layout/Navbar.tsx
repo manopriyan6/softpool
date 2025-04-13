@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { ShoppingCart, Menu, X } from "lucide-react";
@@ -14,7 +13,7 @@ const Navbar = () => {
     <header className="bg-background/80 backdrop-blur-md sticky top-0 z-50 border-b border-border/40">
       <div className="container flex items-center justify-between h-16 px-4 md:px-6">
         <Link to="/" className="flex items-center gap-2">
-          <span className="text-xl font-bold text-gradient">DigitalMarket</span>
+          <span className="text-xl font-bold text-gradient">SoftPool</span>
         </Link>
         
         <nav className="hidden md:flex items-center gap-6">
@@ -43,28 +42,6 @@ const Navbar = () => {
           </Button>
         </div>
       </div>
-
-      {/* Mobile Menu */}
-      {isMenuOpen && (
-        <div className="md:hidden border-t border-border/40 py-4 px-6 bg-background/95 backdrop-blur-md">
-          <nav className="flex flex-col space-y-4">
-            <Link 
-              to="/" 
-              className="text-sm font-medium hover:text-primary transition-colors"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              Home
-            </Link>
-            <Link 
-              to="/products" 
-              className="text-sm font-medium hover:text-primary transition-colors"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              Products
-            </Link>
-          </nav>
-        </div>
-      )}
     </header>
   );
 };

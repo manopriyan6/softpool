@@ -1,4 +1,3 @@
-
 export interface Product {
   id: string;
   title: string;
@@ -13,8 +12,8 @@ export interface Product {
 export const products: Product[] = [
   {
     id: "1",
-    title: "Premium UI Design Kit",
-    description: "A comprehensive UI design kit with 500+ components, 50+ templates, and 1000+ icons. Perfect for web and mobile app design projects.",
+    title: "SoftPool UI Design Kit",
+    description: "A comprehensive UI design kit by SoftPool with 500+ components, 50+ templates, and 1000+ icons. Perfect for web and mobile app design projects.",
     price: 49.99,
     image: "/placeholder.svg",
     category: "Design",
@@ -22,8 +21,8 @@ export const products: Product[] = [
   },
   {
     id: "2",
-    title: "Business Plan Template",
-    description: "Professional business plan template with financial projections, market analysis, and executive summary sections.",
+    title: "SoftPool Business Plan Template",
+    description: "Professional business plan template by SoftPool with financial projections, market analysis, and executive summary sections.",
     price: 29.99,
     image: "/placeholder.svg",
     category: "Business",
