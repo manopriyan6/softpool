@@ -19,7 +19,6 @@ const Navbar = () => {
             alt="SoftPool Logo" 
             className="h-10 w-auto"
           />
-          <span className="text-xl font-bold text-gradient">SoftPool</span>
         </Link>
         
         <nav className="hidden md:flex items-center gap-6">
