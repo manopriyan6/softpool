@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { ShoppingCart, Menu, X } from "lucide-react";
@@ -13,6 +14,11 @@ const Navbar = () => {
     <header className="bg-background/80 backdrop-blur-md sticky top-0 z-50 border-b border-border/40">
       <div className="container flex items-center justify-between h-16 px-4 md:px-6">
         <Link to="/" className="flex items-center gap-2">
+          <img 
+            src="/lovable-uploads/4404e196-ff12-4c8b-a77f-72de16da7e45.png" 
+            alt="SoftPool Logo" 
+            className="h-10 w-auto"
+          />
           <span className="text-xl font-bold text-gradient">SoftPool</span>
         </Link>
         

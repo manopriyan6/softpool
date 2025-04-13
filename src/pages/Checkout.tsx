@@ -5,8 +5,9 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import CheckoutForm from "@/components/checkout/CheckoutForm";
+import CashfreePayment from "@/components/checkout/CashfreePayment";
 import { useCart } from "@/contexts/CartContext";
-import { MessageSquare, Check } from "lucide-react";
+import { MessageSquare, Check, CreditCard } from "lucide-react";
 
 const Checkout = () => {
   const { state } = useCart();
@@ -48,14 +49,21 @@ const Checkout = () => {
           <div className="max-w-4xl mx-auto">
             <h1 className="text-3xl font-bold mb-8">Checkout</h1>
             
-            <Tabs defaultValue="card" className="mb-10">
-              <TabsList className="grid grid-cols-2">
+            <Tabs defaultValue="cashfree" className="mb-10">
+              <TabsList className="grid grid-cols-3">
+                <TabsTrigger value="cashfree">Cashfree</TabsTrigger>
                 <TabsTrigger value="card">Credit Card</TabsTrigger>
                 <TabsTrigger value="whatsapp">Pay via WhatsApp</TabsTrigger>
               </TabsList>
+              
+              <TabsContent value="cashfree" className="mt-6">
+                <CashfreePayment onSuccess={handleOrderSuccess} />
+              </TabsContent>
+              
               <TabsContent value="card" className="mt-6">
                 <CheckoutForm onSuccess={handleOrderSuccess} />
               </TabsContent>
+              
               <TabsContent value="whatsapp" className="mt-6">
                 <div className="p-6 border border-border rounded-lg">
                   <div className="flex items-center gap-3 mb-4">
@@ -66,7 +74,7 @@ const Checkout = () => {
                     Click the button below to contact us on WhatsApp. We'll guide you through the payment process and provide you with the products immediately after confirmation.
                   </p>
                   <a 
-                    href={`https://wa.me/1234567890?text=I'd like to purchase items worth $${state.total.toFixed(2)} from my cart`}
+                    href={`https://wa.me/1234567890?text=I'd like to purchase items worth ₹${state.total.toFixed(2)} from my cart`}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="bg-[#25D366] hover:bg-[#128C7E] text-white py-3 px-6 rounded-md inline-flex items-center gap-2 transition-colors"

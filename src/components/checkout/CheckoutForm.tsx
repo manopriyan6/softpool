@@ -109,14 +109,14 @@ const CheckoutForm = ({ onSuccess }: CheckoutFormProps) => {
                   <span>
                     {item.product.title} <span className="text-muted-foreground">x{item.quantity}</span>
                   </span>
-                  <span>${(item.product.price * item.quantity).toFixed(2)}</span>
+                  <span>₹ {(item.product.price * item.quantity).toFixed(2)}</span>
                 </div>
               ))}
             </div>
             <Separator />
             <div className="flex justify-between font-medium">
               <span>Total</span>
-              <span>${state.total.toFixed(2)}</span>
+              <span>₹ {state.total.toFixed(2)}</span>
             </div>
           </CardContent>
         </Card>
@@ -130,7 +130,7 @@ const CheckoutForm = ({ onSuccess }: CheckoutFormProps) => {
           ) : (
             <div className="flex items-center gap-2">
               <Check className="h-4 w-4" />
-              Complete Purchase
+              Pay ₹ {state.total.toFixed(2)}
             </div>
           )}
         </Button>
