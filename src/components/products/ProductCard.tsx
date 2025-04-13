@@ -34,7 +34,7 @@ const ProductCard = ({ product }: ProductCardProps) => {
             <span className="text-xs font-medium px-2.5 py-0.5 rounded-full bg-accent/10 text-accent">
               {product.category}
             </span>
-            <span className="font-bold text-lg">${product.price.toFixed(2)}</span>
+            <span className="font-bold text-lg">₹{product.price.toFixed(2)}</span>
           </div>
           <h3 className="font-semibold text-lg mb-2 hover:text-primary transition-colors">
             {product.title}

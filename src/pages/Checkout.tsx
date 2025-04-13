@@ -1,17 +1,29 @@
 
-import { useState } from "react";
-import { Navigate } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { Navigate, useNavigate } from "react-router-dom";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
-import CheckoutForm from "@/components/checkout/CheckoutForm";
 import CashfreePayment from "@/components/checkout/CashfreePayment";
 import { useCart } from "@/contexts/CartContext";
-import { MessageSquare, Check, CreditCard } from "lucide-react";
+import { MessageSquare, Check } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 const Checkout = () => {
   const { state } = useCart();
   const [orderComplete, setOrderComplete] = useState(false);
+  const navigate = useNavigate();
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  
+  // Check authentication
+  useEffect(() => {
+    const user = localStorage.getItem('user');
+    if (!user && !orderComplete) {
+      navigate('/login?redirect=/checkout');
+    } else if (user) {
+      setIsAuthenticated(true);
+    }
+  }, [navigate, orderComplete]);
   
   // Redirect if cart is empty
   if (state.items.length === 0 && !orderComplete) {
@@ -21,6 +33,10 @@ const Checkout = () => {
   const handleOrderSuccess = () => {
     setOrderComplete(true);
   };
+  
+  if (!isAuthenticated && !orderComplete) {
+    return null; // Will redirect in useEffect
+  }
   
   return (
     <div className="min-h-screen flex flex-col">
@@ -50,18 +66,13 @@ const Checkout = () => {
             <h1 className="text-3xl font-bold mb-8">Checkout</h1>
             
             <Tabs defaultValue="cashfree" className="mb-10">
-              <TabsList className="grid grid-cols-3">
+              <TabsList className="grid grid-cols-2">
                 <TabsTrigger value="cashfree">Cashfree</TabsTrigger>
-                <TabsTrigger value="card">Credit Card</TabsTrigger>
                 <TabsTrigger value="whatsapp">Pay via WhatsApp</TabsTrigger>
               </TabsList>
               
               <TabsContent value="cashfree" className="mt-6">
                 <CashfreePayment onSuccess={handleOrderSuccess} />
-              </TabsContent>
-              
-              <TabsContent value="card" className="mt-6">
-                <CheckoutForm onSuccess={handleOrderSuccess} />
               </TabsContent>
               
               <TabsContent value="whatsapp" className="mt-6">

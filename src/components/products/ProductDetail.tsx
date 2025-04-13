@@ -1,6 +1,6 @@
 
 import { useState } from "react";
-import { ChevronLeft, ShoppingCart, Share2, MessageSquare, Download } from "lucide-react";
+import { ChevronLeft, ShoppingCart, Share2, MessageSquare, Download, ArrowRight } from "lucide-react";
 import { Link, useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
@@ -21,6 +21,11 @@ const ProductDetail = ({ product, relatedProducts }: ProductDetailProps) => {
   
   const handleAddToCart = () => {
     addToCart(product);
+  };
+  
+  const handleBuyNow = () => {
+    addToCart(product);
+    navigate("/checkout");
   };
   
   const contactViaWhatsApp = () => {
@@ -94,7 +99,7 @@ const ProductDetail = ({ product, relatedProducts }: ProductDetailProps) => {
             <Badge className="mb-3">{product.category}</Badge>
             <h1 className="text-3xl font-bold">{product.title}</h1>
             <div className="flex items-center gap-2 mt-3">
-              <span className="text-3xl font-bold">${product.price.toFixed(2)}</span>
+              <span className="text-3xl font-bold">₹{product.price.toFixed(2)}</span>
             </div>
           </div>
 
@@ -119,10 +124,14 @@ const ProductDetail = ({ product, relatedProducts }: ProductDetailProps) => {
             </ul>
           </div>
 
-          <div className="pt-4">
-            <Button size="lg" className="w-full gap-2" onClick={handleAddToCart}>
+          <div className="pt-4 flex gap-3">
+            <Button size="lg" className="flex-1 gap-2" onClick={handleAddToCart}>
               <ShoppingCart className="h-5 w-5" />
               Add to Cart
+            </Button>
+            <Button size="lg" className="flex-1 gap-2" onClick={handleBuyNow}>
+              <ArrowRight className="h-5 w-5" />
+              Buy Now
             </Button>
           </div>
         </div>
@@ -147,7 +156,7 @@ const ProductDetail = ({ product, relatedProducts }: ProductDetailProps) => {
                     <p className="text-sm text-muted-foreground line-clamp-1">
                       {relatedProduct.description}
                     </p>
-                    <p className="mt-2 font-bold">${relatedProduct.price.toFixed(2)}</p>
+                    <p className="mt-2 font-bold">₹{relatedProduct.price.toFixed(2)}</p>
                   </CardContent>
                 </Card>
               </Link>
