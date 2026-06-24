@@ -20,31 +20,31 @@ export default {
     extend: {
       colors: {
         background: {
-          DEFAULT: 'hsl(240 10% 3.9%)',
-          foreground: 'hsl(0 0% 98%)'
+          DEFAULT: 'hsl(160 45% 7%)',
+          foreground: 'hsl(60 9% 96%)'
         },
         foreground: {
-          DEFAULT: 'hsl(0 0% 98%)',
+          DEFAULT: 'hsl(60 9% 96%)',
         },
         primary: {
-          DEFAULT: 'hsl(54 97% 68%)',
-          foreground: 'hsl(240 5.9% 10%)'
+          DEFAULT: 'hsl(158 64% 52%)',
+          foreground: 'hsl(160 60% 8%)'
         },
         secondary: {
-          DEFAULT: 'hsl(240 3.7% 15.9%)',
-          foreground: 'hsl(0 0% 98%)'
+          DEFAULT: 'hsl(162 40% 14%)',
+          foreground: 'hsl(60 9% 96%)'
         },
         muted: {
-          DEFAULT: 'hsl(240 3.7% 15.9%)',
-          foreground: 'hsl(240 5% 64.9%)'
+          DEFAULT: 'hsl(162 30% 14%)',
+          foreground: 'hsl(160 15% 70%)'
         },
         accent: {
-          DEFAULT: 'hsl(54 97% 68%)',
-          foreground: 'hsl(0 0% 98%)'
+          DEFAULT: 'hsl(158 64% 52%)',
+          foreground: 'hsl(160 60% 8%)'
         },
-        border: 'hsl(240 3.7% 15.9%)',
-        input: 'hsl(240 3.7% 15.9%)',
-        ring: 'hsl(54 97% 68%)'
+        border: 'hsl(162 30% 18%)',
+        input: 'hsl(162 30% 18%)',
+        ring: 'hsl(158 64% 52%)'
       },
       borderRadius: {
         lg: 'var(--radius)',
