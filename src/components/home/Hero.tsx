@@ -14,6 +14,21 @@ const Hero = () => {
         <div className="absolute -bottom-24 left-1/3 h-72 w-72 rounded-full bg-primary/10 blur-3xl animate-blob" style={{ animationDelay: "4s" }} />
       </div>
 
+      {/* Floating WhatsApp chat button */}
+      <a
+        href="https://wa.me/1234567890"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Chat with us on WhatsApp"
+        className="absolute bottom-6 right-6 md:bottom-10 md:right-10 z-10 group"
+      >
+        <span className="absolute inset-0 rounded-full bg-primary/40 animate-ping" />
+        <span className="relative flex items-center gap-2 rounded-full bg-primary text-primary-foreground px-5 py-3 shadow-lg shadow-primary/30 transition-transform hover-scale">
+          <MessageSquare className="h-5 w-5" />
+          <span className="hidden sm:inline font-medium">Chat with us</span>
+        </span>
+      </a>
+
       <div className="container px-4 md:px-6">
         <div className="flex flex-col items-center text-center space-y-10">
           <div className="space-y-4 max-w-3xl animate-fade-in">
