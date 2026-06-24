@@ -20,13 +20,13 @@ const ProductCard = ({ product }: ProductCardProps) => {
   };
 
   return (
-    <Card className="overflow-hidden card-hover">
+    <Card className="overflow-hidden card-hover animate-fade-in transition-all duration-300 hover:-translate-y-1 hover:shadow-lg group">
       <Link to={`/product/${product.id}`}>
         <div className="aspect-[4/3] overflow-hidden bg-secondary/50">
-          <img 
-            src={product.image} 
+          <img
+            src={product.image}
             alt={product.title}
-            className="w-full h-full object-cover transition-transform hover:scale-105"
+            className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
           />
         </div>
         <CardContent className="p-6">
@@ -36,7 +36,7 @@ const ProductCard = ({ product }: ProductCardProps) => {
             </span>
             <span className="font-bold text-lg">₹{product.price.toFixed(2)}</span>
           </div>
-          <h3 className="font-semibold text-lg mb-2 hover:text-primary transition-colors">
+          <h3 className="font-semibold text-lg mb-2 group-hover:text-primary transition-colors">
             {product.title}
           </h3>
           <p className="text-sm text-muted-foreground line-clamp-2">
@@ -44,8 +44,8 @@ const ProductCard = ({ product }: ProductCardProps) => {
           </p>
         </CardContent>
         <CardFooter className="px-6 pb-6 pt-0">
-          <Button 
-            className="w-full gap-2" 
+          <Button
+            className="w-full gap-2 transition-transform hover:scale-[1.02]"
             onClick={handleAddToCart}
           >
             <ShoppingCart className="h-4 w-4" />
