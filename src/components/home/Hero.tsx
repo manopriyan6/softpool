@@ -1,5 +1,5 @@
 
-import { ArrowRight, Download, MessageSquare, Shield } from "lucide-react";
+import { ArrowRight, MessageSquare } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 
@@ -39,23 +39,6 @@ const Hero = () => {
             </Button>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 w-full max-w-4xl pt-12">
-            {[
-              { Icon: Download, title: "Instant Downloads", desc: "Get access to your purchases immediately after checkout." },
-              { Icon: Shield, title: "Secure Payment", desc: "Your transactions are protected with industry-standard encryption." },
-              { Icon: MessageSquare, title: "24/7 Support", desc: "Get help via WhatsApp anytime you need assistance." },
-            ].map(({ Icon, title, desc }, i) => (
-              <div
-                key={title}
-                className="bg-secondary/50 p-6 rounded-lg border border-border/40 animate-fade-in hover-scale transition-colors hover:border-primary/40"
-                style={{ animationDelay: `${300 + i * 120}ms`, animationFillMode: "backwards" }}
-              >
-                <Icon className="h-10 w-10 text-primary mb-4" />
-                <h3 className="text-lg font-medium mb-2">{title}</h3>
-                <p className="text-sm text-muted-foreground">{desc}</p>
-              </div>
-            ))}
-          </div>
         </div>
       </div>
     </section>
